@@ -1,0 +1,84 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e6f6; /* Morado pastel claro */
+    color: #4a2c5e; /* Morado oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('images/background.jpg'); /* Imagen de fondo */
+    background-size: cover;
+  }
+  
+  .container {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #7e57c2; /* Morado pastel */
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    color: #9575cd; /* Morado pastel más claro */
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .task-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .task-form input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #d1c4e9; /* Morado pastel */
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .task-form button {
+    padding: 10px 15px;
+    background-color: #7e57c2; /* Morado pastel */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .task-form button:hover {
+    background-color: #673ab7; /* Morado más oscuro */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #ede7f6; /* Morado pastel claro */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  li.completed {
+    text-decoration: line-through;
+    background-color: #d1c4e9; /* Morado pastel más claro */
+  }
+  
+  li:hover {
+    background-color: #d1c4e9; /* Morado pastel más claro */
+  }
