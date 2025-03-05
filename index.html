@@ -17,25 +17,6 @@
     <ul id="task-list"></ul>
   </div>
 
-  <script>
-    function addTask() {
-      const taskInput = document.getElementById('task-input');
-      const taskList = document.getElementById('task-list');
-
-      if (taskInput.value.trim() === '') {
-        alert('Por favor, escribe una tarea.');
-        return;
-      }
-
-      const li = document.createElement('li');
-      li.textContent = taskInput.value;
-      taskList.appendChild(li);
-      taskInput.value = '';
-
-      li.addEventListener('click', () => {
-        li.classList.toggle('completed');
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
