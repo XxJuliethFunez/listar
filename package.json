@@ -4,11 +4,16 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint script.js",
+    "lint:css": "stylelint style.css",
+    "lint:html": "htmlhint index.html",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/XxJuliethFunez/listar.git"
+    
   },
   "keywords": [],
   "author": "",
@@ -21,6 +26,9 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "eslint": "^9.21.0",
-    "globals": "^16.0.0"
+    "globals": "^16.0.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.15.0",
+    "stylelint-config-standard": "^37.0.0"
   }
 }

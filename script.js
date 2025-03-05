@@ -1,83 +1,77 @@
 // Obtener elementos del DOM
-const taskInput = document.getElementById('task-input');
-const taskList = document.getElementById('task-list');
+document.addEventListener('DOMContentLoaded', () => {
+  const taskInput = document.getElementById('task-input');
+  const taskList = document.getElementById('task-list');
 
-// Cargar tareas al iniciar
-document.addEventListener('DOMContentLoaded', loadTasks);
-
-// Función para agregar una tarea
-function addTask() {
-  if (taskInput.value.trim() === '') {
-    alert('Por favor, escribe una tarea.');
+  if (!taskInput || !taskList) {
+    console.error('No se encontraron los elementos del DOM.');
     return;
   }
 
-  // Crear elemento de lista
-  const li = document.createElement('li');
-  li.textContent = taskInput.value;
+  loadTasks();
 
-  // Botón para eliminar tarea
-  const deleteBtn = document.createElement('button');
-  deleteBtn.textContent = 'Eliminar';
-  deleteBtn.classList.add('delete-btn');
-  deleteBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Evitar que el evento se propague al li
-    li.remove();
+  // Función para agregar una tarea
+  window.addTask = function () {
+    const taskText = taskInput.value.trim();
+    if (taskText === '') {
+      alert('Por favor, escribe una tarea.');
+      return;
+    }
+
+    createTaskElement(taskText, false);
+    taskInput.value = '';
     saveTasks();
-  });
+  };
 
-  li.appendChild(deleteBtn);
-
-  // Marcar tarea como completada
-  li.addEventListener('click', () => {
-    li.classList.toggle('completed');
-    saveTasks();
-  });
-
-  taskList.appendChild(li);
-  taskInput.value = '';
-  saveTasks();
-}
-
-// Función para guardar tareas en localStorage
-function saveTasks() {
-  const tasks = [];
-  document.querySelectorAll('#task-list li').forEach((li) => {
-    tasks.push({
-      text: li.textContent.replace('Eliminar', '').trim(),
-      completed: li.classList.contains('completed'),
+  // Función para guardar tareas en localStorage
+  function saveTasks() {
+    const tasks = [];
+    document.querySelectorAll('#task-list li').forEach((li) => {
+      const taskText = li.querySelector('.task-text').textContent;
+      const completed = li.classList.contains('completed');
+      tasks.push({ text: taskText, completed });
     });
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
 
-// Función para cargar tareas desde localStorage
-function loadTasks() {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  tasks.forEach((task) => {
+  // Función para cargar tareas desde localStorage
+  function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    taskList.innerHTML = ''; // Limpiar lista antes de cargar
+    tasks.forEach((task) => createTaskElement(task.text, task.completed));
+  }
+
+  // Función para crear un elemento de tarea
+  function createTaskElement(text, completed) {
     const li = document.createElement('li');
-    li.textContent = task.text;
-
-    if (task.completed) {
+    if (completed) {
       li.classList.add('completed');
     }
 
+    // Crear el span para el texto de la tarea
+    const span = document.createElement('span');
+    span.classList.add('task-text');
+    span.textContent = text;
+    li.appendChild(span);
+
+    // Botón para eliminar tarea
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Eliminar';
     deleteBtn.classList.add('delete-btn');
     deleteBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.stopPropagation(); // Evita que el clic en el botón active el evento de la tarea
       li.remove();
       saveTasks();
     });
 
     li.appendChild(deleteBtn);
 
+    // Evento para marcar como completada
     li.addEventListener('click', () => {
       li.classList.toggle('completed');
       saveTasks();
     });
 
     taskList.appendChild(li);
-  });
-}
+  }
+});
