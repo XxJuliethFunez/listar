@@ -1,34 +1,44 @@
 {
-  "name": "lista-de-tareas",
+  
+  "name": "front",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:js": "eslint script.js",
-    "lint:css": "stylelint style.css",
-    "lint:html": "htmlhint index.html",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:html"
-},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/XxJuliethFunez/listar.git"
-    
+    "build": "webpack --mode=development ",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/XxJuliethFunez/listar/issues"
-  },
-  "homepage": "https://github.com/XxJuliethFunez/listar#readme",
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
-    "eslint": "^9.21.0",
-    "globals": "^16.0.0",
-    "htmlhint": "^1.1.4",
-    "stylelint": "^16.15.0",
-    "stylelint-config-standard": "^37.0.0"
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.31.0",
+    "hint": "^7.1.13",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarlonAngarita/Linters_html.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MarlonAngarita/Linters_html/issues"
+  },
+  "homepage": "https://github.com/MarlonAngarita/Linters_html#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
