@@ -1,38 +1,103 @@
-# Implementación de una Aplicación Web en Azure
+# 🌐 Implementación de una Aplicación Web en Azure
 
-Este proyecto consiste en el desarrollo y despliegue de una aplicación web utilizando Node.js, Express.js y su publicación en una máquina virtual en Microsoft Azure, con configuración de proxy inverso en Apache y habilitación de HTTPS con Certbot.
+Este proyecto demuestra cómo desarrollar una aplicación web sencilla con **Node.js** y **Express.js**, y cómo desplegarla en la nube utilizando una **máquina virtual en Microsoft Azure**. Además, se configura un **proxy inverso con Apache** y se habilita **HTTPS con Certbot**, asegurando una conexión segura para los usuarios.
 
-## 🛠 Tecnologías Utilizadas
+---
 
-- Node.js
-- Express.js
-- Apache2
-- Ubuntu (Azure VM)
-- Certbot (Let's Encrypt)
-- Git y GitHub
+## 🚀 Objetivo del Proyecto
 
-## 📌 Pasos del Proyecto
+- Crear una aplicación backend con Node.js y Express.js.
+- Alojamiento en la nube (Azure).
+- Configuración de proxy inverso (Apache).
+- Habilitar HTTPS con Certbot para seguridad SSL.
 
-1. **Instalación de Node.js y Express.js**
-2. **Creación del servidor Express**
-3. **Prueba local de la aplicación**
-4. **Creación de una máquina virtual en Azure**
-5. **Conexión por SSH a la VM**
-6. **Instalación y configuración de Apache**
-7. **Activación de módulos de proxy en Apache**
-8. **Configuración de archivo 000-default.conf**
-9. **Reinicio del servicio Apache**
-10. **Configuración de proxy inverso**
-11. **Instalación y configuración de Certbot**
-12. **Habilitación de HTTPS automático**
+Este proceso es fundamental para cualquier desarrollador que quiera aprender a desplegar aplicaciones reales en un entorno productivo y seguro.
 
-## 🌐 Resultado Final
+---
 
-Una aplicación web accesible desde el navegador a través de una IP pública o dominio, con conexión segura (HTTPS).
+## 🛠️ Tecnologías Utilizadas
 
-## 🚀 Cómo ejecutar este proyecto
+| Herramienta     | Descripción |
+|-----------------|-------------|
+| Node.js         | Entorno de ejecución para JavaScript en el servidor |
+| Express.js      | Framework minimalista para crear servidores y APIs |
+| Apache2         | Servidor HTTP que actúa como proxy inverso |
+| Ubuntu          | Sistema operativo de la máquina virtual en Azure |
+| Certbot         | Herramienta para generar certificados SSL gratuitos (Let's Encrypt) |
+| Azure           | Plataforma de nube donde se aloja la aplicación |
+| Git & GitHub    | Control de versiones y colaboración en el código |
+
+---
+
+## 📦 Estructura del Proyecto
+
+```
+listar/
+├── app.js               # Archivo principal del servidor Express
+├── package.json         # Lista de dependencias
+├── public/              # Archivos estáticos (HTML, CSS)
+├── README.md            # Documentación del proyecto
+└── ...
+```
+
+---
+
+## 🧪 Pasos para Ejecutar el Proyecto Localmente
 
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/XxJuliethFunez/listar.git
    cd listar
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Inicia el servidor:
+   ```bash
+   node app.js
+   ```
+
+4. Abre tu navegador en:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## ☁️ Pasos para Despliegue en Azure
+
+1. Crea una máquina virtual en Azure (Ubuntu).
+2. Conéctate mediante SSH:
+   ```bash
+   ssh usuario@ip-publica
+   ```
+3. Instala Node.js, Apache y Certbot.
+4. Clona este repositorio y ejecuta la app.
+5. Configura Apache como proxy inverso.
+6. Usa Certbot para habilitar HTTPS:
+   ```bash
+   sudo certbot --apache
+   ```
+
+---
+
+## 🔐 Seguridad y HTTPS
+
+Con Certbot, el sitio se protege con un certificado SSL de Let's Encrypt, mostrando el candado 🔒 en el navegador. Esto asegura la confidencialidad y confianza de los usuarios al acceder a la aplicación.
+
+---
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Puedes hacer un fork del repositorio, trabajar en una rama y luego hacer un pull request. Este proyecto es ideal para practicar despliegue en la nube y DevOps básico.
+
+---
+
+## 👩‍💻 Autor
+
+**Julieth Funez**  
+Repositorio del proyecto: [github.com/XxJuliethFunez/listar](https://github.com/XxJuliethFunez/listar)
+
